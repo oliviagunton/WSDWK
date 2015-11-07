@@ -1,0 +1,16 @@
+
+#### SONGS KNOWN BY LOGGED-IN USER ####
+select Title from UserRepertoire
+left join Users on UserRepertoire.UserID = Users.UserID
+left join Songs on UserRepertoire.SongID = Songs.SongID
+#where users.FacebookID = (<Current facebook user ID>)
+order by Title asc;
+
+#### SONGS FROM MOST TO LEAST KNOWN ####
+Select Title, Count(UserRepertoire.UserID) as 'Count'
+from UserRepertoire
+left join Users on UserRepertoire.UserID = Users.UserID
+left join Songs on UserRepertoire.SongID = Songs.SongID
+# Where Users.FacebookID in (<list of facebook IDs we got from the event attendance list)
+group by Title
+order by 2 DESC;
