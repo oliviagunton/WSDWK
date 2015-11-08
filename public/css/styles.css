@@ -3,6 +3,11 @@ body
 	background-size: cover;
 }
 
+a:not(.profilebutton){
+	color: #333333 !important;
+
+}
+
 
 .container
 {
@@ -11,14 +16,36 @@ body
 
 }
 
+table{
+	background-color:rgba(255, 255, 255, 0.4) !important;
+}
+
+th{
+	color: white;
+	font-weight: bold;
+}
+
 #middle td{
-	background-color:rgba(255, 255, 255, 0.5);
+	background-color:rgba(255, 255, 255, 0.75) !important;
 	text-align: left;
 }
 
 .centeredelement
 {
-	margin-left: 10%;
-	margin-right: 10%;
-	padding: 150px;
+	padding: 0px 150px 0px 150px;
+}
+
+#top{
+	color: white !important;
+}
+
+a.profilebutton
+{
+	color: #FFFFFF !important;
+	font-weight: bold;
+}
+
+div.profilebutton
+{
+		padding: 0px 150px 0px 150px;
 }

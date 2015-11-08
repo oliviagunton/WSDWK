@@ -1,13 +1,9 @@
 <?php
-	/*
-	
-	index.php
+/* What Songs Do We Know?
+A web app using the facebook API built for YHack 2015 by Connor Dube and Olivia Gunton (Yale).
 
-	Controller for logging in and basic page control.
-	
-	*/
-    
-
+See README.txt for details.
+*/
 	// configuration
 	if (!isset($_SESSION))
 	{
@@ -25,14 +21,13 @@
 
 	$helper = $fb->getRedirectLoginHelper();
 
-	$permissions = ['email']; // Optional permissions
-	$loginUrl = $helper->getLoginUrl('http://localhost/home.php', $permissions);
+	$loginUrl = $helper->getLoginUrl('http://localhost/home.php');
 
     print('<!DOCTYPE html><html lang-"en">
         <head>
         <link href="/public/css/bootstrap.min.css" rel="stylesheet"> 
         <link href="/public/css/styles.css" rel="stylesheet">
-        <link href="img/georgianletter.jpg" rel="icon">
+        <link href="/georgianletter.ico" rel="icon">
         <title>What Songs Do We Know | Login</title>
         </head>
         <body background="/img/Pirosmani_kutezh.jpg">
