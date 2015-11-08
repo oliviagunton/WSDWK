@@ -72,7 +72,7 @@ echo 'ID: ' . $user['id'] . "<br>";
 echo "List of onefourfive events: <br>";
 try {
   // Returns a `Facebook\FacebookResponse` object
-  $page_events = $fb->get('/onefourfiveseattle/events', $accessToken);
+  $page_events = $fb->get('/onefourfiveseattle/events?fields=name', $accessToken);
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
   echo 'Graph returned an error: ' . $e->getMessage();
   exit;
@@ -81,7 +81,12 @@ try {
   exit;
 }
 
-print_r($page_events);
+$events_data = $page_events->getDecodedBody();
+
+foreach($events_data['data'] as $i){
+	print_r($i['name']);
+	print "<br>";
+}
 
 echo "<br>";
 
@@ -98,7 +103,12 @@ try {
   exit;
 }
 
-print_r($attendees);
+$attendees_data = $attendees->getDecodedBody();
+
+foreach($attendees_data['data'] as $i){
+	print_r($i['name']);
+	print "<br>";
+}
 
 
 ?>
