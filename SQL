@@ -7,10 +7,14 @@ left join Songs on UserRepertoire.SongID = Songs.SongID
 order by Title asc;
 
 #### SONGS FROM MOST TO LEAST KNOWN ####
-Select Title, Count(UserRepertoire.UserID) as 'Count'
+'Select Title, 
+SongID,
+Count(UserRepertoire.UserID) as 'Count',
 from UserRepertoire
 left join Users on UserRepertoire.UserID = Users.UserID
 left join Songs on UserRepertoire.SongID = Songs.SongID
-# Where Users.FacebookID in (<list of facebook IDs we got from the event attendance list)
-group by Title
-order by 2 DESC;
+where Users.FacebookID in' . $id_string .
+'group by Title
+order by 2 DESC'
+
+

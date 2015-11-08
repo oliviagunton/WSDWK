@@ -12,13 +12,7 @@
 	if (!isset($_SESSION))
 	{
 		session_start();
-	}//if logged in already
-	/*
-	if (isset($_SESSION["fb_access_token"]))
-	{
-		header("Location: http:/ec2-52-11-115-214.us-west-2.compute.amazonaws.com/home.php");
-	}*/
-
+	}
     //else*/
 
 	require_once __DIR__ . '/vendor/autoload.php';
@@ -32,18 +26,19 @@
 	$helper = $fb->getRedirectLoginHelper();
 
 	$permissions = ['email']; // Optional permissions
-	$loginUrl = $helper->getLoginUrl('http://localhost/fb-callback.php', $permissions);
+	$loginUrl = $helper->getLoginUrl('http://localhost/home.php', $permissions);
 
     print('<!DOCTYPE html><html lang-"en">
         <head>
         <link href="/public/css/bootstrap.min.css" rel="stylesheet"> 
         <link href="/public/css/styles.css" rel="stylesheet">
+        <link href="img/georgianletter.jpg" rel="icon">
         <title>What Songs Do We Know | Login</title>
         </head>
-        <body>
+        <body background="/img/Pirosmani_kutezh.jpg">
             <div class="container">
-                <div id="top"><h1>What Songs Do We Know?</h1></div>
-            <div id="middle">');
+                <div id="text"><h1>What Songs Do We Know?</h1></div>
+            <div id="loginbutton" vertical-align="bottom">');
     
     print('<a href="' . htmlspecialchars($loginUrl) . '"><img src="/img/fbloginbutton.png" width="18%" height="18%"/></a>');
 

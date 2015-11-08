@@ -1,12 +1,24 @@
-body {
-    background-image: url("/img/Pirosmani_kutezh.jpg");
-    background-size: cover;
+body
+{
+	background-size: cover;
 }
 
 
 .container
 {
 	text-align: center;
-	vertical-align: middle;
+	padding: 0px !important;
 
+}
+
+#middle td{
+	background-color:rgba(255, 255, 255, 0.5);
+	text-align: left;
+}
+
+.centeredelement
+{
+	margin-left: 10%;
+	margin-right: 10%;
+	padding: 150px;
 }

@@ -107,6 +107,8 @@ $attendees_data = $attendees->getDecodedBody();
 
 foreach($attendees_data['data'] as $i){
 	print_r($i['name']);
+	print ": ";
+	print_r($i['id']);
 	print "<br>";
 }
 
