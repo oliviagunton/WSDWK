@@ -30,10 +30,10 @@
 
 			//FB query on event - returns attendees
 			require_once __DIR__ . '/vendor/autoload.php';
-			$fb = new Facebook\Facebook([  
-				'app_id' => '512533675528202',  
-				'app_secret' => '629e3db8c0a822f695e98b7e679976c2',  
-				'default_graph_version' => 'v2.4',  
+			$fb = new Facebook\Facebook([
+				'app_id' => '##########', //placeholder
+				'app_secret' => '#########',  //placeholder
+				'default_graph_version' => 'v2.4',
 			]);
 			try {
 				// Returns a `Facebook\FacebookResponse` object
@@ -61,7 +61,7 @@
 			$password = NULL;
 			$mysqli = new mysqli("localhost", $username, $password, "yhack2015");
 			$eventquerystring = "SELECT SongTitle, Songs.SongID, URL, Count(UserRepertoire.UserID) as 'Count' " .
-								"FROM UserRepertoire LEFT JOIN Users ON UserRepertoire.UserID = Users.UserID " . 
+								"FROM UserRepertoire LEFT JOIN Users ON UserRepertoire.UserID = Users.UserID " .
 								"LEFT JOIN Songs on UserRepertoire.SongID = Songs.SongID WHERE Users.FacebookID IN " . $id_string .
 								" GROUP BY SongTitle ORDER BY Count(UserRepertoire.UserID) DESC";
 			$event_song = $mysqli->query($eventquerystring);
@@ -111,13 +111,13 @@
 					if(isset($song["SongTitle"])){
 						print('<td>' . $song["SongTitle"] . '</td><td><a href="' . $song["URL"] . '" target="new">URL</a></td><td>' . $song["Count"] . '</td></tr>');
 					}
-					
+
 				}
-			
+
 				print('</tbody></table></div>');
-			}	
+			}
 			//Prints link to profile
-			print('<div class="profilebutton"><a class="profilebutton" href="user_songs.php">View/Edit the songs you know</a></div>');	
+			print('<div class="profilebutton"><a class="profilebutton" href="user_songs.php">View/Edit the songs you know</a></div>');
 		?>
 	</body>
 </html>
